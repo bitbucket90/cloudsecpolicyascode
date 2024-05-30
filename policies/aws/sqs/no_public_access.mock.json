@@ -1,0 +1,4139 @@
+{
+  "mock": {
+    "valid": {
+      "create": {
+        "resource_changes": [
+          {
+            "address": "data.aws_iam_policy_document.referenced_policy",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "referenced_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "sqs:AddPermission",
+                      "sqs:ChangeMessageVisibility",
+                      "sqs:DeleteQueue",
+                      "sqs:ReceiveMessage",
+                      "sqs:RemovePermission",
+                      "sqs:SetQueueAttributes"
+                    ],
+                    "condition": [
+                      {
+                        "test": "StringNotEquals",
+                        "values": [
+                          "111122223434"
+                        ],
+                        "variable": "aws:PrincipalAccount"
+                      }
+                    ],
+                    "effect": "Deny",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "SecondDD"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "aws_sqs_queue.inline_data_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy",
+                "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Condition\":{\"StringEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\",\"Sid\":\"First\"},{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_sqs_queue.inline_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:DeleteQueue\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 300
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_sqs_queue.referenced_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "referenced_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "policy": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_sqs_queue_policy.referenced_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue_policy",
+            "name": "referenced_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {},
+              "after_unknown": {
+                "id": true,
+                "policy": true,
+                "queue_url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          },
+          {
+            "address": "module.sqs.data.aws_iam_policy_document.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "sqs:AddPermission",
+                      "sqs:ChangeMessageVisibility",
+                      "sqs:DeleteQueue",
+                      "sqs:ReceiveMessage",
+                      "sqs:RemovePermission",
+                      "sqs:SetQueueAttributes"
+                    ],
+                    "condition": [
+                      {
+                        "test": "StringNotEquals",
+                        "values": [
+                          "111122223434"
+                        ],
+                        "variable": "aws:PrincipalAccount"
+                      }
+                    ],
+                    "effect": "Deny",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "SecondDD"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.inline_data_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-in-module",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.inline_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline_in_module",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:DeleteQueue\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 300
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy-in-module",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "policy": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue_policy.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue_policy",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {},
+              "after_unknown": {
+                "id": true,
+                "policy": true,
+                "queue_url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.data.aws_iam_policy_document.referenced_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "referenced_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "sqs:AddPermission",
+                      "sqs:ChangeMessageVisibility",
+                      "sqs:DeleteQueue",
+                      "sqs:ReceiveMessage",
+                      "sqs:RemovePermission",
+                      "sqs:SetQueueAttributes"
+                    ],
+                    "condition": [
+                      {
+                        "test": "StringNotEquals",
+                        "values": [
+                          "111122223434"
+                        ],
+                        "variable": "aws:PrincipalAccount"
+                      }
+                    ],
+                    "effect": "Deny",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "SecondDD"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.inline_data_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-create",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.inline_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline_in_nested_module",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:DeleteQueue\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 300
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.referenced_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "referenced_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy-in-nested-module",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "policy": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue_policy.referenced_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue_policy",
+            "name": "referenced_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {},
+              "after_unknown": {
+                "id": true,
+                "policy": true,
+                "queue_url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_sqs_queue.inline_data_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "inline_data_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "name": {
+                    "constant_value": "inline-data-policy"
+                  },
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.inline_data_policy.json",
+                      "data.aws_iam_policy_document.inline_data_policy"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_sqs_queue.inline_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "inline_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "name": {
+                    "constant_value": "inline"
+                  },
+                  "policy": {},
+                  "visibility_timeout_seconds": {
+                    "constant_value": 300
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_sqs_queue.referenced_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "referenced_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "delay_seconds": {
+                    "constant_value": 90
+                  },
+                  "name": {
+                    "constant_value": "referenced-policy"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_sqs_queue_policy.referenced_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue_policy",
+                "name": "referenced_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.referenced_policy.json",
+                      "data.aws_iam_policy_document.referenced_policy"
+                    ]
+                  },
+                  "queue_url": {
+                    "references": [
+                      "aws_sqs_queue.referenced_policy.id",
+                      "aws_sqs_queue.referenced_policy"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "data.aws_iam_policy_document.inline_data_policy",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "inline_data_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:SendMessage"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "StringEquals"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "111122223434"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "aws:PrincipalAccount"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Allow"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "*"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "constant_value": [
+                          "*"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "First"
+                      }
+                    },
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:AddPermission",
+                          "sqs:ChangeMessageVisibility",
+                          "sqs:DeleteQueue",
+                          "sqs:RemovePermission",
+                          "sqs:SetQueueAttributes",
+                          "sqs:ReceiveMessage"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "StringNotEquals"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "111122223434"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "aws:PrincipalAccount"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Deny"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "constant_value": [
+                          "*"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "Second"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_iam_policy_document.referenced_policy",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "referenced_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:AddPermission",
+                          "sqs:ChangeMessageVisibility",
+                          "sqs:DeleteQueue",
+                          "sqs:RemovePermission",
+                          "sqs:SetQueueAttributes",
+                          "sqs:ReceiveMessage"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "StringNotEquals"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "111122223434"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "aws:PrincipalAccount"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Deny"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "references": [
+                          "aws_sqs_queue.referenced_policy.arn",
+                          "aws_sqs_queue.referenced_policy"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "SecondDD"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "sqs": {
+                "source": "./modules/sqs-module",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "aws_sqs_queue.inline_data_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "inline_data_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "name": {
+                          "constant_value": "inline-data-policy-in-module"
+                        },
+                        "policy": {
+                          "references": [
+                            "data.aws_iam_policy_document.inline_data_policy_in_module.json",
+                            "data.aws_iam_policy_document.inline_data_policy_in_module"
+                          ]
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_sqs_queue.inline_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "inline_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "name": {
+                          "constant_value": "inline_in_module"
+                        },
+                        "policy": {},
+                        "visibility_timeout_seconds": {
+                          "constant_value": 300
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_sqs_queue.referenced_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "delay_seconds": {
+                          "constant_value": 90
+                        },
+                        "name": {
+                          "constant_value": "referenced-policy-in-module"
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_sqs_queue_policy.referenced_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue_policy",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "policy": {
+                          "references": [
+                            "data.aws_iam_policy_document.referenced_policy_in_module.json",
+                            "data.aws_iam_policy_document.referenced_policy_in_module"
+                          ]
+                        },
+                        "queue_url": {
+                          "references": [
+                            "aws_sqs_queue.referenced_policy_in_module.id",
+                            "aws_sqs_queue.referenced_policy_in_module"
+                          ]
+                        }
+                      },
+                      "schema_version": 1
+                    },
+                    {
+                      "address": "data.aws_iam_policy_document.inline_data_policy_in_module",
+                      "mode": "data",
+                      "type": "aws_iam_policy_document",
+                      "name": "inline_data_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "statement": [
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "sqs:AddPermission",
+                                "sqs:ChangeMessageVisibility",
+                                "sqs:DeleteQueue",
+                                "sqs:RemovePermission",
+                                "sqs:SetQueueAttributes",
+                                "sqs:ReceiveMessage"
+                              ]
+                            },
+                            "condition": [
+                              {
+                                "test": {
+                                  "constant_value": "StringNotEquals"
+                                },
+                                "values": {
+                                  "constant_value": [
+                                    "111122223434"
+                                  ]
+                                },
+                                "variable": {
+                                  "constant_value": "aws:PrincipalAccount"
+                                }
+                              }
+                            ],
+                            "effect": {
+                              "constant_value": "Deny"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "AWS"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "constant_value": [
+                                "*"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "Second"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "data.aws_iam_policy_document.referenced_policy_in_module",
+                      "mode": "data",
+                      "type": "aws_iam_policy_document",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "statement": [
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "sqs:AddPermission",
+                                "sqs:ChangeMessageVisibility",
+                                "sqs:DeleteQueue",
+                                "sqs:RemovePermission",
+                                "sqs:SetQueueAttributes",
+                                "sqs:ReceiveMessage"
+                              ]
+                            },
+                            "condition": [
+                              {
+                                "test": {
+                                  "constant_value": "StringNotEquals"
+                                },
+                                "values": {
+                                  "constant_value": [
+                                    "111122223434"
+                                  ]
+                                },
+                                "variable": {
+                                  "constant_value": "aws:PrincipalAccount"
+                                }
+                              }
+                            ],
+                            "effect": {
+                              "constant_value": "Deny"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "AWS"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "references": [
+                                "aws_sqs_queue.referenced_policy_in_module.arn",
+                                "aws_sqs_queue.referenced_policy_in_module"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "SecondDD"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    }
+                  ],
+                  "module_calls": {
+                    "nested_sqs": {
+                      "source": "./modules/sqs-nested-module",
+                      "module": {
+                        "resources": [
+                          {
+                            "address": "aws_sqs_queue.inline_data_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "name": {
+                                "constant_value": "inline-data-policy-create"
+                              },
+                              "policy": {
+                                "references": [
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module.json",
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module"
+                                ]
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "aws_sqs_queue.inline_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "inline_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "name": {
+                                "constant_value": "inline_in_nested_module"
+                              },
+                              "policy": {},
+                              "visibility_timeout_seconds": {
+                                "constant_value": 300
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "aws_sqs_queue.referenced_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "referenced_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "delay_seconds": {
+                                "constant_value": 90
+                              },
+                              "name": {
+                                "constant_value": "referenced-policy-in-nested-module"
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "aws_sqs_queue_policy.referenced_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue_policy",
+                            "name": "referenced_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "policy": {
+                                "references": [
+                                  "data.aws_iam_policy_document.referenced_policy_in_nested_module.json",
+                                  "data.aws_iam_policy_document.referenced_policy_in_nested_module"
+                                ]
+                              },
+                              "queue_url": {
+                                "references": [
+                                  "aws_sqs_queue.referenced_policy_in_nested_module.id",
+                                  "aws_sqs_queue.referenced_policy_in_nested_module"
+                                ]
+                              }
+                            },
+                            "schema_version": 1
+                          },
+                          {
+                            "address": "data.aws_iam_policy_document.inline_data_policy_in_nested_module",
+                            "mode": "data",
+                            "type": "aws_iam_policy_document",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "statement": [
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "sqs:AddPermission",
+                                      "sqs:ChangeMessageVisibility",
+                                      "sqs:DeleteQueue",
+                                      "sqs:RemovePermission",
+                                      "sqs:SetQueueAttributes",
+                                      "sqs:ReceiveMessage"
+                                    ]
+                                  },
+                                  "condition": [
+                                    {
+                                      "test": {
+                                        "constant_value": "StringNotEquals"
+                                      },
+                                      "values": {
+                                        "constant_value": [
+                                          "111122223434"
+                                        ]
+                                      },
+                                      "variable": {
+                                        "constant_value": "aws:PrincipalAccount"
+                                      }
+                                    }
+                                  ],
+                                  "effect": {
+                                    "constant_value": "Deny"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "AWS"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "constant_value": [
+                                      "*"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "Second"
+                                  }
+                                }
+                              ]
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "data.aws_iam_policy_document.referenced_policy_in_nested_module",
+                            "mode": "data",
+                            "type": "aws_iam_policy_document",
+                            "name": "referenced_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "statement": [
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "sqs:AddPermission",
+                                      "sqs:ChangeMessageVisibility",
+                                      "sqs:DeleteQueue",
+                                      "sqs:RemovePermission",
+                                      "sqs:SetQueueAttributes",
+                                      "sqs:ReceiveMessage"
+                                    ]
+                                  },
+                                  "condition": [
+                                    {
+                                      "test": {
+                                        "constant_value": "StringNotEquals"
+                                      },
+                                      "values": {
+                                        "constant_value": [
+                                          "111122223434"
+                                        ]
+                                      },
+                                      "variable": {
+                                        "constant_value": "aws:PrincipalAccount"
+                                      }
+                                    }
+                                  ],
+                                  "effect": {
+                                    "constant_value": "Deny"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "AWS"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "references": [
+                                      "aws_sqs_queue.referenced_policy_in_nested_module.arn",
+                                      "aws_sqs_queue.referenced_policy_in_nested_module"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "SecondDD"
+                                  }
+                                }
+                              ]
+                            },
+                            "schema_version": 0
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "update": {
+        "resource_changes": [
+          {
+            "address": "aws_sqs_queue.inline_data_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline-data-policy",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Condition\":{\"StringEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\",\"Sid\":\"First\"},{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy",
+                "visibility_timeout_seconds": 30
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline-data-policy",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Condition\":{\"StringEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\",\"Sid\":\"First\"},{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy",
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_sqs_queue.inline_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:DeleteQueue\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline",
+                "visibility_timeout_seconds": 300
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline",
+                "visibility_timeout_seconds": 300
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_sqs_queue.referenced_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "referenced_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "no-op"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:referenced-policy",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy",
+                "visibility_timeout_seconds": 30
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:referenced-policy",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy",
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_sqs_queue_policy.referenced_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue_policy",
+            "name": "referenced_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "queue_url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy"
+              },
+              "after": {
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "queue_url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy"
+              },
+              "after_unknown": {},
+              "before_sensitive": {},
+              "after_sensitive": {}
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.inline_data_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline-data-policy-in-module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-in-module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-in-module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-in-module",
+                "visibility_timeout_seconds": 30
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline-data-policy-in-module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-in-module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-in-module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-in-module",
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.inline_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline_in_module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline_in_module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:DeleteQueue\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_module",
+                "visibility_timeout_seconds": 300
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline_in_module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline_in_module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_module",
+                "visibility_timeout_seconds": 300
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "no-op"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy-in-module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module",
+                "visibility_timeout_seconds": 30
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy-in-module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module",
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue_policy.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue_policy",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "queue_url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module"
+              },
+              "after": {
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "queue_url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-module"
+              },
+              "after_unknown": {},
+              "before_sensitive": {},
+              "after_sensitive": {}
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.inline_data_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline-data-policy-create",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-create",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-create",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-create",
+                "visibility_timeout_seconds": 30
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline-data-policy-create",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-create",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-create",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline-data-policy-create",
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.inline_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline_in_nested_module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_nested_module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline_in_nested_module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:DeleteQueue\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_nested_module",
+                "visibility_timeout_seconds": 300
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:inline_in_nested_module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_nested_module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline_in_nested_module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":[\"111122223434\"]}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/inline_in_nested_module",
+                "visibility_timeout_seconds": 300
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.referenced_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "referenced_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "no-op"
+              ],
+              "before": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-nested-module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy-in-nested-module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-nested-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module",
+                "visibility_timeout_seconds": 30
+              },
+              "after": {
+                "arn": "arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-nested-module",
+                "content_based_deduplication": false,
+                "deduplication_scope": "",
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "fifo_throughput_limit": "",
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module",
+                "kms_data_key_reuse_period_seconds": 300,
+                "kms_master_key_id": "",
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy-in-nested-module",
+                "name_prefix": "",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-nested-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "redrive_allow_policy": "",
+                "redrive_policy": "",
+                "sqs_managed_sse_enabled": true,
+                "tags": {},
+                "tags_all": {},
+                "url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module",
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue_policy.referenced_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue_policy",
+            "name": "referenced_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-nested-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "queue_url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module"
+              },
+              "after": {
+                "id": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sqs:us-east-1:111122223434:referenced-policy-in-nested-module\",\"Sid\":\"SecondDD\"}],\"Version\":\"2012-10-17\"}",
+                "queue_url": "https://sqs.us-east-1.amazonaws.com/111122223434/referenced-policy-in-nested-module"
+              },
+              "after_unknown": {},
+              "before_sensitive": {},
+              "after_sensitive": {}
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_sqs_queue.inline_data_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "inline_data_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "name": {
+                    "constant_value": "inline-data-policy"
+                  },
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.inline_data_policy2.json",
+                      "data.aws_iam_policy_document.inline_data_policy2"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_sqs_queue.inline_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "inline_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "name": {
+                    "constant_value": "inline"
+                  },
+                  "policy": {},
+                  "visibility_timeout_seconds": {
+                    "constant_value": 300
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_sqs_queue.referenced_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "referenced_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "delay_seconds": {
+                    "constant_value": 90
+                  },
+                  "name": {
+                    "constant_value": "referenced-policy"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_sqs_queue_policy.referenced_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue_policy",
+                "name": "referenced_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.referenced_policy.json",
+                      "data.aws_iam_policy_document.referenced_policy"
+                    ]
+                  },
+                  "queue_url": {
+                    "references": [
+                      "aws_sqs_queue.referenced_policy.id",
+                      "aws_sqs_queue.referenced_policy"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "data.aws_iam_policy_document.inline_data_policy2",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "inline_data_policy2",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:SendMessage"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "StringEquals"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "111122223434"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "aws:PrincipalAccount"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Allow"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "*"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "constant_value": [
+                          "*"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "First"
+                      }
+                    },
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:AddPermission",
+                          "sqs:ChangeMessageVisibility",
+                          "sqs:SetQueueAttributes",
+                          "sqs:ReceiveMessage"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "StringNotEquals"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "111122223434"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "aws:PrincipalAccount"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Deny"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "constant_value": [
+                          "*"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "Second"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_iam_policy_document.referenced_policy",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "referenced_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:AddPermission",
+                          "sqs:ChangeMessageVisibility",
+                          "sqs:SetQueueAttributes",
+                          "sqs:ReceiveMessage"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "StringNotEquals"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "111122223434"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "aws:PrincipalAccount"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Deny"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "references": [
+                          "aws_sqs_queue.referenced_policy.arn",
+                          "aws_sqs_queue.referenced_policy"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "SecondDD"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "sqs": {
+                "source": "./modules/sqs-module",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "aws_sqs_queue.inline_data_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "inline_data_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "name": {
+                          "constant_value": "inline-data-policy-in-module"
+                        },
+                        "policy": {
+                          "references": [
+                            "data.aws_iam_policy_document.inline_data_policy_in_module.json",
+                            "data.aws_iam_policy_document.inline_data_policy_in_module"
+                          ]
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_sqs_queue.inline_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "inline_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "name": {
+                          "constant_value": "inline_in_module"
+                        },
+                        "policy": {},
+                        "visibility_timeout_seconds": {
+                          "constant_value": 300
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_sqs_queue.referenced_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "delay_seconds": {
+                          "constant_value": 90
+                        },
+                        "name": {
+                          "constant_value": "referenced-policy-in-module"
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_sqs_queue_policy.referenced_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue_policy",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "policy": {
+                          "references": [
+                            "data.aws_iam_policy_document.referenced_policy_in_module.json",
+                            "data.aws_iam_policy_document.referenced_policy_in_module"
+                          ]
+                        },
+                        "queue_url": {
+                          "references": [
+                            "aws_sqs_queue.referenced_policy_in_module.id",
+                            "aws_sqs_queue.referenced_policy_in_module"
+                          ]
+                        }
+                      },
+                      "schema_version": 1
+                    },
+                    {
+                      "address": "data.aws_iam_policy_document.inline_data_policy_in_module",
+                      "mode": "data",
+                      "type": "aws_iam_policy_document",
+                      "name": "inline_data_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "statement": [
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "sqs:AddPermission",
+                                "sqs:ChangeMessageVisibility",
+                                "sqs:DeleteQueue",
+                                "sqs:ReceiveMessage"
+                              ]
+                            },
+                            "condition": [
+                              {
+                                "test": {
+                                  "constant_value": "StringNotEquals"
+                                },
+                                "values": {
+                                  "constant_value": [
+                                    "111122223434"
+                                  ]
+                                },
+                                "variable": {
+                                  "constant_value": "aws:PrincipalAccount"
+                                }
+                              }
+                            ],
+                            "effect": {
+                              "constant_value": "Deny"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "AWS"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "constant_value": [
+                                "*"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "Second"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "data.aws_iam_policy_document.referenced_policy_in_module",
+                      "mode": "data",
+                      "type": "aws_iam_policy_document",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "statement": [
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "sqs:AddPermission",
+                                "sqs:ChangeMessageVisibility",
+                                "sqs:DeleteQueue",
+                                "sqs:ReceiveMessage"
+                              ]
+                            },
+                            "condition": [
+                              {
+                                "test": {
+                                  "constant_value": "StringNotEquals"
+                                },
+                                "values": {
+                                  "constant_value": [
+                                    "111122223434"
+                                  ]
+                                },
+                                "variable": {
+                                  "constant_value": "aws:PrincipalAccount"
+                                }
+                              }
+                            ],
+                            "effect": {
+                              "constant_value": "Deny"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "AWS"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "references": [
+                                "aws_sqs_queue.referenced_policy_in_module.arn",
+                                "aws_sqs_queue.referenced_policy_in_module"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "SecondDD"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    }
+                  ],
+                  "module_calls": {
+                    "nested_sqs": {
+                      "source": "./modules/sqs-nested-module",
+                      "module": {
+                        "resources": [
+                          {
+                            "address": "aws_sqs_queue.inline_data_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "name": {
+                                "constant_value": "inline-data-policy-create"
+                              },
+                              "policy": {
+                                "references": [
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module.json",
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module"
+                                ]
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "aws_sqs_queue.inline_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "inline_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "name": {
+                                "constant_value": "inline_in_nested_module"
+                              },
+                              "policy": {},
+                              "visibility_timeout_seconds": {
+                                "constant_value": 300
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "aws_sqs_queue.referenced_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "referenced_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "delay_seconds": {
+                                "constant_value": 90
+                              },
+                              "name": {
+                                "constant_value": "referenced-policy-in-nested-module"
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "aws_sqs_queue_policy.referenced_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue_policy",
+                            "name": "referenced_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "policy": {
+                                "references": [
+                                  "data.aws_iam_policy_document.referenced_policy_in_nested_module.json",
+                                  "data.aws_iam_policy_document.referenced_policy_in_nested_module"
+                                ]
+                              },
+                              "queue_url": {
+                                "references": [
+                                  "aws_sqs_queue.referenced_policy_in_nested_module.id",
+                                  "aws_sqs_queue.referenced_policy_in_nested_module"
+                                ]
+                              }
+                            },
+                            "schema_version": 1
+                          },
+                          {
+                            "address": "data.aws_iam_policy_document.inline_data_policy_in_nested_module",
+                            "mode": "data",
+                            "type": "aws_iam_policy_document",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "statement": [
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "sqs:AddPermission",
+                                      "sqs:ChangeMessageVisibility",
+                                      "sqs:DeleteQueue",
+                                      "sqs:ReceiveMessage"
+                                    ]
+                                  },
+                                  "condition": [
+                                    {
+                                      "test": {
+                                        "constant_value": "StringNotEquals"
+                                      },
+                                      "values": {
+                                        "constant_value": [
+                                          "111122223434"
+                                        ]
+                                      },
+                                      "variable": {
+                                        "constant_value": "aws:PrincipalAccount"
+                                      }
+                                    }
+                                  ],
+                                  "effect": {
+                                    "constant_value": "Deny"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "AWS"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "constant_value": [
+                                      "*"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "Second"
+                                  }
+                                }
+                              ]
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "data.aws_iam_policy_document.referenced_policy_in_nested_module",
+                            "mode": "data",
+                            "type": "aws_iam_policy_document",
+                            "name": "referenced_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "statement": [
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "sqs:AddPermission",
+                                      "sqs:ChangeMessageVisibility",
+                                      "sqs:SetQueueAttributes",
+                                      "sqs:ReceiveMessage"
+                                    ]
+                                  },
+                                  "condition": [
+                                    {
+                                      "test": {
+                                        "constant_value": "StringNotEquals"
+                                      },
+                                      "values": {
+                                        "constant_value": [
+                                          "111122223434"
+                                        ]
+                                      },
+                                      "variable": {
+                                        "constant_value": "aws:PrincipalAccount"
+                                      }
+                                    }
+                                  ],
+                                  "effect": {
+                                    "constant_value": "Deny"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "AWS"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "references": [
+                                      "aws_sqs_queue.referenced_policy_in_nested_module.arn",
+                                      "aws_sqs_queue.referenced_policy_in_nested_module"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "SecondDD"
+                                  }
+                                }
+                              ]
+                            },
+                            "schema_version": 0
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "invalid": {
+      "no_policy": {
+        "resource_changes": [
+          {
+            "address": "aws_sqs_queue.no_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "no_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "no-policy",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "policy": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.no_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "no_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "no-policy-in_module",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "policy": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.no_policy_create_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "no_policy_create_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "no-policy-create_in_nested_module",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "policy": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_sqs_queue.no_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "no_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "delay_seconds": {
+                    "constant_value": 90
+                  },
+                  "name": {
+                    "constant_value": "no-policy"
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "sqs": {
+                "source": "./modules/sqs-module",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "aws_sqs_queue.no_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "no_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "delay_seconds": {
+                          "constant_value": 90
+                        },
+                        "name": {
+                          "constant_value": "no-policy-in_module"
+                        }
+                      },
+                      "schema_version": 0
+                    }
+                  ],
+                  "module_calls": {
+                    "nested_sqs": {
+                      "source": "./modules/sqs-nested-module",
+                      "module": {
+                        "resources": [
+                          {
+                            "address": "aws_sqs_queue.no_policy_create_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "no_policy_create_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "delay_seconds": {
+                                "constant_value": 90
+                              },
+                              "name": {
+                                "constant_value": "no-policy-create_in_nested_module"
+                              }
+                            },
+                            "schema_version": 0
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "bad_policy": {
+        "resource_changes": [
+          {
+            "address": "aws_sqs_queue.inline_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:AddPermission\",\"sqs:ChangeMessageVisibility\",\"sqs:DeleteQueue\",\"sqs:RemovePermission\",\"sqs:SetQueueAttributes\",\"sqs:ReceiveMessage\"],\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"First\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 300
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.data.aws_iam_policy_document.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "sqs:AddPermission",
+                      "sqs:ChangeMessageVisibility",
+                      "sqs:DeleteQueue",
+                      "sqs:ReceiveMessage",
+                      "sqs:RemovePermission",
+                      "sqs:SetQueueAttributes"
+                    ],
+                    "condition": [
+                      {
+                        "test": "StringNotEquals",
+                        "values": [
+                          "111122223434"
+                        ],
+                        "variable": "aws:PrincipalAccount"
+                      }
+                    ],
+                    "effect": "Allow",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "SecondDD"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 90,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "referenced-policy-in-module",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "policy": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue_policy.referenced_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue_policy",
+            "name": "referenced_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {},
+              "after_unknown": {
+                "id": true,
+                "policy": true,
+                "queue_url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.inline_data_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-create",
+                "policy": "{\"Statement\":[{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_sqs_queue.inline_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "inline_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "name": {
+                    "constant_value": "inline"
+                  },
+                  "policy": {},
+                  "visibility_timeout_seconds": {
+                    "constant_value": 300
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "sqs": {
+                "source": "./modules/sqs-module",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "aws_sqs_queue.referenced_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "delay_seconds": {
+                          "constant_value": 90
+                        },
+                        "name": {
+                          "constant_value": "referenced-policy-in-module"
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_sqs_queue_policy.referenced_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue_policy",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "policy": {
+                          "references": [
+                            "data.aws_iam_policy_document.referenced_policy_in_module.json",
+                            "data.aws_iam_policy_document.referenced_policy_in_module"
+                          ]
+                        },
+                        "queue_url": {
+                          "references": [
+                            "aws_sqs_queue.referenced_policy_in_module.id",
+                            "aws_sqs_queue.referenced_policy_in_module"
+                          ]
+                        }
+                      },
+                      "schema_version": 1
+                    },
+                    {
+                      "address": "data.aws_iam_policy_document.referenced_policy_in_module",
+                      "mode": "data",
+                      "type": "aws_iam_policy_document",
+                      "name": "referenced_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "statement": [
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "sqs:AddPermission",
+                                "sqs:ChangeMessageVisibility",
+                                "sqs:DeleteQueue",
+                                "sqs:RemovePermission",
+                                "sqs:SetQueueAttributes",
+                                "sqs:ReceiveMessage"
+                              ]
+                            },
+                            "condition": [
+                              {
+                                "test": {
+                                  "constant_value": "StringNotEquals"
+                                },
+                                "values": {
+                                  "constant_value": [
+                                    "111122223434"
+                                  ]
+                                },
+                                "variable": {
+                                  "constant_value": "aws:PrincipalAccount"
+                                }
+                              }
+                            ],
+                            "effect": {
+                              "constant_value": "Allow"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "AWS"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "references": [
+                                "aws_sqs_queue.referenced_policy_in_module.arn",
+                                "aws_sqs_queue.referenced_policy_in_module"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "SecondDD"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    }
+                  ],
+                  "module_calls": {
+                    "nested_sqs": {
+                      "source": "./modules/sqs-nested-module",
+                      "module": {
+                        "resources": [
+                          {
+                            "address": "aws_sqs_queue.inline_data_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "name": {
+                                "constant_value": "inline-data-policy-create"
+                              },
+                              "policy": {
+                                "references": [
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module.json",
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module"
+                                ]
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "data.aws_iam_policy_document.inline_data_policy_in_nested_module",
+                            "mode": "data",
+                            "type": "aws_iam_policy_document",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "statement": [
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "sqs:AddPermission",
+                                      "sqs:ChangeMessageVisibility",
+                                      "sqs:DeleteQueue",
+                                      "sqs:RemovePermission",
+                                      "sqs:SetQueueAttributes",
+                                      "sqs:ReceiveMessage"
+                                    ]
+                                  },
+                                  "condition": [
+                                    {
+                                      "test": {
+                                        "constant_value": "StringEquals"
+                                      },
+                                      "values": {
+                                        "constant_value": [
+                                          "111122223434"
+                                        ]
+                                      },
+                                      "variable": {
+                                        "constant_value": "aws:PrincipalAccount"
+                                      }
+                                    }
+                                  ],
+                                  "effect": {
+                                    "constant_value": "Deny"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "AWS"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "constant_value": [
+                                      "*"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "Second"
+                                  }
+                                }
+                              ]
+                            },
+                            "schema_version": 0
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "bad_multi_statement_policy": {
+        "resource_changes": [
+          {
+            "address": "aws_sqs_queue.inline_data_policy",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy",
+                "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\",\"Sid\":\"First\"},{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.aws_sqs_queue.inline_data_policy_in_module",
+            "module_address": "module.sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy_in_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-in-module",
+                "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\",\"Sid\":\"First\"},{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringNotEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.sqs.module.nested_sqs.aws_sqs_queue.inline_data_policy_in_nested_module",
+            "module_address": "module.sqs.module.nested_sqs",
+            "mode": "managed",
+            "type": "aws_sqs_queue",
+            "name": "inline_data_policy_in_nested_module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "content_based_deduplication": false,
+                "delay_seconds": 0,
+                "fifo_queue": false,
+                "kms_master_key_id": null,
+                "max_message_size": 262144,
+                "message_retention_seconds": 345600,
+                "name": "inline-data-policy-create",
+                "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\",\"Sid\":\"First\"},{\"Action\":[\"sqs:SetQueueAttributes\",\"sqs:RemovePermission\",\"sqs:ReceiveMessage\",\"sqs:DeleteQueue\",\"sqs:ChangeMessageVisibility\",\"sqs:AddPermission\"],\"Condition\":{\"StringEquals\":{\"aws:PrincipalAccount\":\"111122223434\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"*\",\"Sid\":\"Second\"}],\"Version\":\"2012-10-17\"}",
+                "receive_wait_time_seconds": 0,
+                "tags": null,
+                "visibility_timeout_seconds": 30
+              },
+              "after_unknown": {
+                "arn": true,
+                "deduplication_scope": true,
+                "fifo_throughput_limit": true,
+                "id": true,
+                "kms_data_key_reuse_period_seconds": true,
+                "name_prefix": true,
+                "redrive_allow_policy": true,
+                "redrive_policy": true,
+                "sqs_managed_sse_enabled": true,
+                "tags_all": true,
+                "url": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_sqs_queue.inline_data_policy",
+                "mode": "managed",
+                "type": "aws_sqs_queue",
+                "name": "inline_data_policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "name": {
+                    "constant_value": "inline-data-policy"
+                  },
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.inline_data_policy2.json",
+                      "data.aws_iam_policy_document.inline_data_policy2"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_iam_policy_document.inline_data_policy2",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "inline_data_policy2",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:SendMessage"
+                        ]
+                      },
+                      "effect": {
+                        "constant_value": "Allow"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "*"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "constant_value": [
+                          "*"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "First"
+                      }
+                    },
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "sqs:AddPermission",
+                          "sqs:ChangeMessageVisibility",
+                          "sqs:DeleteQueue",
+                          "sqs:RemovePermission",
+                          "sqs:SetQueueAttributes",
+                          "sqs:ReceiveMessage"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "StringNotEquals"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "111122223434"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "aws:PrincipalAccount"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Deny"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "constant_value": [
+                          "*"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "Second"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "sqs": {
+                "source": "./modules/sqs-module",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "aws_sqs_queue.inline_data_policy_in_module",
+                      "mode": "managed",
+                      "type": "aws_sqs_queue",
+                      "name": "inline_data_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "name": {
+                          "constant_value": "inline-data-policy-in-module"
+                        },
+                        "policy": {
+                          "references": [
+                            "data.aws_iam_policy_document.inline_data_policy_in_module.json",
+                            "data.aws_iam_policy_document.inline_data_policy_in_module"
+                          ]
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "data.aws_iam_policy_document.inline_data_policy_in_module",
+                      "mode": "data",
+                      "type": "aws_iam_policy_document",
+                      "name": "inline_data_policy_in_module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "statement": [
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "sqs:SendMessage"
+                              ]
+                            },
+                            "effect": {
+                              "constant_value": "Allow"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "*"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "constant_value": [
+                                "*"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "First"
+                            }
+                          },
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "sqs:AddPermission",
+                                "sqs:ChangeMessageVisibility",
+                                "sqs:DeleteQueue",
+                                "sqs:RemovePermission",
+                                "sqs:SetQueueAttributes",
+                                "sqs:ReceiveMessage"
+                              ]
+                            },
+                            "condition": [
+                              {
+                                "test": {
+                                  "constant_value": "StringNotEquals"
+                                },
+                                "values": {
+                                  "constant_value": [
+                                    "111122223434"
+                                  ]
+                                },
+                                "variable": {
+                                  "constant_value": "aws:PrincipalAccount"
+                                }
+                              }
+                            ],
+                            "effect": {
+                              "constant_value": "Deny"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "AWS"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "constant_value": [
+                                "*"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "Second"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    }
+                  ],
+                  "module_calls": {
+                    "nested_sqs": {
+                      "source": "./modules/sqs-nested-module",
+                      "module": {
+                        "resources": [
+                          {
+                            "address": "aws_sqs_queue.inline_data_policy_in_nested_module",
+                            "mode": "managed",
+                            "type": "aws_sqs_queue",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "name": {
+                                "constant_value": "inline-data-policy-create"
+                              },
+                              "policy": {
+                                "references": [
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module.json",
+                                  "data.aws_iam_policy_document.inline_data_policy_in_nested_module"
+                                ]
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "data.aws_iam_policy_document.inline_data_policy_in_nested_module",
+                            "mode": "data",
+                            "type": "aws_iam_policy_document",
+                            "name": "inline_data_policy_in_nested_module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "statement": [
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "sqs:SendMessage"
+                                    ]
+                                  },
+                                  "effect": {
+                                    "constant_value": "Allow"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "*"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "constant_value": [
+                                      "*"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "First"
+                                  }
+                                },
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "sqs:AddPermission",
+                                      "sqs:ChangeMessageVisibility",
+                                      "sqs:DeleteQueue",
+                                      "sqs:RemovePermission",
+                                      "sqs:SetQueueAttributes",
+                                      "sqs:ReceiveMessage"
+                                    ]
+                                  },
+                                  "condition": [
+                                    {
+                                      "test": {
+                                        "constant_value": "StringEquals"
+                                      },
+                                      "values": {
+                                        "constant_value": [
+                                          "111122223434"
+                                        ]
+                                      },
+                                      "variable": {
+                                        "constant_value": "aws:PrincipalAccount"
+                                      }
+                                    }
+                                  ],
+                                  "effect": {
+                                    "constant_value": "Deny"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "AWS"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "constant_value": [
+                                      "*"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "Second"
+                                  }
+                                }
+                              ]
+                            },
+                            "schema_version": 0
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

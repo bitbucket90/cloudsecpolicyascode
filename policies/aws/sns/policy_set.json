@@ -1,0 +1,19 @@
+{
+  "policy_set_name": "SNS Standards",
+  "policy_set_description": "Policies to Enforce SNS Standards",
+  "policy_engine": "opa",
+  "policy_exceptions": [],
+  "include_organizations": [],
+  "policies": [
+    {
+      "name": "sns-no_public_access",
+      "description": "Restrict traffic to topics within own AWS account",
+      "path": "no_pulic_access.rego",
+      "opa_query": "data.aws.sns.no_public_access.deny",
+      "enforcement_mode": "mandatory",
+      "runbook_requirement_uid": [
+        "3aa72670-0a53-4281-a5ff-8f107a947b3f"
+      ]
+    }
+  ]
+}

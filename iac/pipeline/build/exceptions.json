@@ -1,0 +1,29 @@
+[
+    {
+        "workspace_id":"ws-go4o3rbCp3eVq2QY",
+        "workspace":"zscaler_dlp_iac",
+        "project":" AA00003447",
+        "organization":"banzai-qa",
+        "policy_set":"broad_policies",
+        "policy_set_id":"polset-9jT9bHNznyehSPSz",
+        "is_active":true
+    },
+    {
+        "workspace_id":"ws-CoLUfqDa3bPCDR8a",
+        "workspace":"terraform_governance",
+        "project":" AA00008271",
+        "organization":"sentinel-dev-testing",
+        "policy_set":" S3_Bucket_Encryption",
+        "policy_set_id":"polset-TCGz32oSdfrrFEPN",
+        "is_active":false
+    },
+    {
+        "workspace_id":"ws-CoLUfqDa3bPCDR8a",
+        "workspace":"terraform_governance",
+        "project":" AA00008271",
+        "organization":"sentinel-dev-testing",
+        "policy_set":" Security_Group",
+        "policy_set_id":"polset-RXb4Qzhnoden7gc2",
+        "is_active":false
+    }
+]

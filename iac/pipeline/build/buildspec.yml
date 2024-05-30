@@ -1,0 +1,39 @@
+version: 0.2
+env:
+  shell: bash
+  variables:
+    PIP_INDEX: "https://cgrepo.capgroup.com/repository/cgpypi/pypi/"
+    PIP_INDEX_URL: "https://cgrepo.capgroup.com/repository/cgpypi/simple/"
+    PIP_TRUSTED_HOST: "cgrepo.capgroup.com"
+  exported-variables: [
+    'CHG_REQUEST_ID'
+  ]
+phases:
+  install:
+    runtime-versions:
+        python: 3.9
+  pre_build:
+    commands:
+      - echo "Building Environment"
+  build:
+    commands:
+      - echo "building package..."
+      - ls
+      - cd iac/pipeline/build
+      - ls
+      - pip install -r requirements.txt -t ./
+      - echo "Building AWS Infrastructure"
+      # - python aws_iac.py
+      - echo "Packaging and Deploying Terraform Policies"
+      - python policy_manager.py
+  post_build:
+    commands:
+      - echo "POST BUILD - Verifying Outputs"
+      #- aws s3 cp wiz_iac_lambda.zip s3://wiz-iac-tfe-ftdev/lambda_source/wiz_iac_lambda.zip test22
+      - ls
+##################################
+# Build Artifacts to be uploaded #
+##################################
+# artifacts:
+#   files: iac/terraform/*
+#   discard-paths: no

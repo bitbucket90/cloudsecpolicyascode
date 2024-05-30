@@ -1,0 +1,20 @@
+[
+    {
+        "policy_set_name":"Security Group",
+        "policy_set_description":"Security Groups must not allow all ingress or egress",
+        "policy_engine":"opa",
+        "policy_exceptions":["AA00002873-PolicyManager"],
+        "include":[],
+        "is_active":false,
+        "policies":[
+            {
+                "name":"Prevent Public",
+                "description":"description",
+                "path":"public_ingress.rego",
+                "opa_query":"data.terraform.policies.public_ingress.deny",
+                "enforcement_mode":"mandatory",
+                "runbook_requirement_uid": []
+            }
+        ]
+    }
+]

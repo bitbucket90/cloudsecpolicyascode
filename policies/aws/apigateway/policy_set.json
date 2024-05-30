@@ -1,0 +1,37 @@
+{
+  "policy_set_name": "API Gateway Standards",
+  "policy_set_description": "Policies to Enforce API Gateway Standards",
+  "policy_engine": "opa",
+  "policy_exceptions": [],
+  "include_organizations": [],
+  "policies": [
+    {
+      "name": "apigateway-private_endpoints",
+      "description": "API Gateway resource should not be publicly accessible",
+      "path": "private-endpoints.rego",
+      "opa_query": "data.aws.apigateway.private_endpoints.deny",
+      "enforcement_mode": "mandatory",
+      "runbook_requirement_uid": [
+        "53d6e4e7-70cc-4535-9874-e8ed44221200"
+      ]
+    },
+    {
+      "name": "apigateway-encryption",
+      "description": "Enforce encryption if caching is enabled in REST API",
+      "path": "encryption.rego",
+      "opa_query": "data.aws.apigateway.encryption.deny",
+      "enforcement_mode": "mandatory",
+      "runbook_requirement_uid": [
+        "adefae26-d16c-4b0c-9996-3210c300e629"
+      ]
+    },
+    {
+      "name": "apigateway-logging",
+      "description": "Restrict API deployment if logging is not enabled",
+      "path": "logging.rego",
+      "opa_query": "data.aws.apigateway.logging.deny",
+      "enforcement_mode": "mandatory",
+      "runbook_requirement_uid": []
+    }
+  ]
+}

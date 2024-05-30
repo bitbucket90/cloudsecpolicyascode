@@ -1,0 +1,20 @@
+[
+    {
+        "policy_set_name":"Required Resource Tags",
+        "policy_set_description":"Policies to Enforce Tagging on all resources where applicable",
+        "policy_engine":"opa",
+        "push_empty":true,
+        "policy_exceptions":[],
+        "policies":[
+            {
+                "name":"storage_device_tagging",
+                "description":"Storage Services Must Include Tag 'data-type' and 'data-classification'",
+                "path":"storage_tags.rego",
+                "opa_query":"data.terraform.policies.tags.storage.deny",
+                "include_utils":true,
+                "enforcement_mode":"mandatory",
+                "runbook_requirement_uid": []
+            }
+        ]
+    }
+]

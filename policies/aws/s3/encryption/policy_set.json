@@ -1,0 +1,20 @@
+[
+    {
+        "policy_set_name":"S3 Bucket Encryption",
+        "policy_set_description":"Policies to Enforce Encryption on S3 Resources",
+        "policy_engine":"opa",
+        "policy_exceptions":[],
+        "include_organizations":[],
+        "is_active":false,
+        "policies":[
+            {
+                "name":"",
+                "description":"description",
+                "path":"s3_bucket_encryption.rego",
+                "opa_query":"data.aws.s3.encryption.deny",
+                "enforcement_mode":"mandatory",
+                "runbook_requirement_uid": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,1766 @@
+{
+  "mock": {
+    "valid": {
+      "create": {
+        "resource_changes": [
+          {
+            "address": "data.aws_iam_policy_document.policy",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "elasticfilesystem:ClientMount",
+                      "elasticfilesystem:ClientWrite"
+                    ],
+                    "condition": [
+                      {
+                        "test": "Bool",
+                        "values": [
+                          "true"
+                        ],
+                        "variable": "elasticfilesystem:AccessedViaMountTarget"
+                      }
+                    ],
+                    "effect": "Allow",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "UpdateThisPolicy"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "aws_efs_file_system.with-policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system",
+            "name": "with-policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "creation_token": "my-product-with-policy",
+                "lifecycle_policy": [],
+                "provisioned_throughput_in_mibps": null,
+                "tags": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "tags_all": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "throughput_mode": "bursting"
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "availability_zone_name": true,
+                "dns_name": true,
+                "encrypted": true,
+                "id": true,
+                "kms_key_id": true,
+                "lifecycle_policy": [],
+                "name": true,
+                "number_of_mount_targets": true,
+                "owner_id": true,
+                "performance_mode": true,
+                "protection": true,
+                "size_in_bytes": true,
+                "tags": {},
+                "tags_all": {}
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [],
+                "size_in_bytes": [],
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_efs_file_system_policy.policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system_policy",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "bypass_policy_lockout_safety_check": false
+              },
+              "after_unknown": {
+                "file_system_id": true,
+                "id": true,
+                "policy": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          },
+          {
+            "address": "module.efs.data.aws_iam_policy_document.policy-via-module",
+            "module_address": "module.efs",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "policy-via-module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "elasticfilesystem:ClientMount",
+                      "elasticfilesystem:ClientWrite"
+                    ],
+                    "condition": [
+                      {
+                        "test": "Bool",
+                        "values": [
+                          "true"
+                        ],
+                        "variable": "elasticfilesystem:AccessedViaMountTarget"
+                      }
+                    ],
+                    "effect": "Allow",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "UpdateThisPolicy"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "module.efs.aws_efs_file_system.efs-via-module",
+            "module_address": "module.efs",
+            "mode": "managed",
+            "type": "aws_efs_file_system",
+            "name": "efs-via-module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "creation_token": "efs-via-module",
+                "lifecycle_policy": [],
+                "provisioned_throughput_in_mibps": null,
+                "tags": null,
+                "throughput_mode": "bursting"
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "availability_zone_name": true,
+                "dns_name": true,
+                "encrypted": true,
+                "id": true,
+                "kms_key_id": true,
+                "lifecycle_policy": [],
+                "name": true,
+                "number_of_mount_targets": true,
+                "owner_id": true,
+                "performance_mode": true,
+                "protection": true,
+                "size_in_bytes": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [],
+                "size_in_bytes": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.efs.aws_efs_file_system_policy.policy",
+            "module_address": "module.efs",
+            "mode": "managed",
+            "type": "aws_efs_file_system_policy",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "bypass_policy_lockout_safety_check": false
+              },
+              "after_unknown": {
+                "file_system_id": true,
+                "id": true,
+                "policy": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          },
+          {
+            "address": "module.efs.module.nested_efs.data.aws_iam_policy_document.policy-via-nested-module",
+            "module_address": "module.efs.module.nested_efs",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "policy-via-nested-module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "elasticfilesystem:ClientMount",
+                      "elasticfilesystem:ClientWrite"
+                    ],
+                    "condition": [
+                      {
+                        "test": "Bool",
+                        "values": [
+                          "true"
+                        ],
+                        "variable": "elasticfilesystem:AccessedViaMountTarget"
+                      }
+                    ],
+                    "effect": "Allow",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "UpdateThisPolicy"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [
+                      {
+                        "values": [
+                          false
+                        ]
+                      }
+                    ],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "module.efs.module.nested_efs.aws_efs_file_system.efs-via-nested-module",
+            "module_address": "module.efs.module.nested_efs",
+            "mode": "managed",
+            "type": "aws_efs_file_system",
+            "name": "efs-via-nested-module",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "creation_token": "efs-via-nested-module",
+                "lifecycle_policy": [],
+                "provisioned_throughput_in_mibps": null,
+                "tags": null,
+                "throughput_mode": "bursting"
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "availability_zone_name": true,
+                "dns_name": true,
+                "encrypted": true,
+                "id": true,
+                "kms_key_id": true,
+                "lifecycle_policy": [],
+                "name": true,
+                "number_of_mount_targets": true,
+                "owner_id": true,
+                "performance_mode": true,
+                "protection": true,
+                "size_in_bytes": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [],
+                "size_in_bytes": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "module.efs.module.nested_efs.aws_efs_file_system_policy.policy",
+            "module_address": "module.efs.module.nested_efs",
+            "mode": "managed",
+            "type": "aws_efs_file_system_policy",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "bypass_policy_lockout_safety_check": false
+              },
+              "after_unknown": {
+                "file_system_id": true,
+                "id": true,
+                "policy": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_efs_file_system.with-policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system",
+                "name": "with-policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "creation_token": {
+                    "constant_value": "my-product-with-policy"
+                  },
+                  "tags": {
+                    "constant_value": {
+                      "Name": "MyProductWithPolicy"
+                    }
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_efs_file_system_policy.policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system_policy",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "file_system_id": {
+                    "references": [
+                      "aws_efs_file_system.with-policy.id",
+                      "aws_efs_file_system.with-policy"
+                    ]
+                  },
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.policy.json",
+                      "data.aws_iam_policy_document.policy"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_iam_policy_document.policy",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "elasticfilesystem:ClientMount",
+                          "elasticfilesystem:ClientWrite"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "Bool"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "true"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "elasticfilesystem:AccessedViaMountTarget"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Allow"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "references": [
+                          "aws_efs_file_system.with-policy.arn",
+                          "aws_efs_file_system.with-policy"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "UpdateThisPolicy"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "efs": {
+                "source": "./modules/efs-module",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "aws_efs_file_system.efs-via-module",
+                      "mode": "managed",
+                      "type": "aws_efs_file_system",
+                      "name": "efs-via-module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "creation_token": {
+                          "constant_value": "efs-via-module"
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "aws_efs_file_system_policy.policy",
+                      "mode": "managed",
+                      "type": "aws_efs_file_system_policy",
+                      "name": "policy",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "file_system_id": {
+                          "references": [
+                            "aws_efs_file_system.efs-via-module.id",
+                            "aws_efs_file_system.efs-via-module"
+                          ]
+                        },
+                        "policy": {
+                          "references": [
+                            "data.aws_iam_policy_document.policy-via-module.json",
+                            "data.aws_iam_policy_document.policy-via-module"
+                          ]
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "data.aws_iam_policy_document.policy-via-module",
+                      "mode": "data",
+                      "type": "aws_iam_policy_document",
+                      "name": "policy-via-module",
+                      "provider_config_key": "aws",
+                      "expressions": {
+                        "statement": [
+                          {
+                            "actions": {
+                              "constant_value": [
+                                "elasticfilesystem:ClientMount",
+                                "elasticfilesystem:ClientWrite"
+                              ]
+                            },
+                            "condition": [
+                              {
+                                "test": {
+                                  "constant_value": "Bool"
+                                },
+                                "values": {
+                                  "constant_value": [
+                                    "true"
+                                  ]
+                                },
+                                "variable": {
+                                  "constant_value": "elasticfilesystem:AccessedViaMountTarget"
+                                }
+                              }
+                            ],
+                            "effect": {
+                              "constant_value": "Allow"
+                            },
+                            "principals": [
+                              {
+                                "identifiers": {
+                                  "constant_value": [
+                                    "*"
+                                  ]
+                                },
+                                "type": {
+                                  "constant_value": "AWS"
+                                }
+                              }
+                            ],
+                            "resources": {
+                              "references": [
+                                "aws_efs_file_system.efs-via-module.arn",
+                                "aws_efs_file_system.efs-via-module"
+                              ]
+                            },
+                            "sid": {
+                              "constant_value": "UpdateThisPolicy"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    }
+                  ],
+                  "module_calls": {
+                    "nested_efs": {
+                      "source": "./modules/efs-nested-module",
+                      "module": {
+                        "resources": [
+                          {
+                            "address": "aws_efs_file_system.efs-via-nested-module",
+                            "mode": "managed",
+                            "type": "aws_efs_file_system",
+                            "name": "efs-via-nested-module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "creation_token": {
+                                "constant_value": "efs-via-nested-module"
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "aws_efs_file_system_policy.policy",
+                            "mode": "managed",
+                            "type": "aws_efs_file_system_policy",
+                            "name": "policy",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "file_system_id": {
+                                "references": [
+                                  "aws_efs_file_system.efs-via-nested-module.id",
+                                  "aws_efs_file_system.efs-via-nested-module"
+                                ]
+                              },
+                              "policy": {
+                                "references": [
+                                  "data.aws_iam_policy_document.policy-via-nested-module.json",
+                                  "data.aws_iam_policy_document.policy-via-nested-module"
+                                ]
+                              }
+                            },
+                            "schema_version": 0
+                          },
+                          {
+                            "address": "data.aws_iam_policy_document.policy-via-nested-module",
+                            "mode": "data",
+                            "type": "aws_iam_policy_document",
+                            "name": "policy-via-nested-module",
+                            "provider_config_key": "aws",
+                            "expressions": {
+                              "statement": [
+                                {
+                                  "actions": {
+                                    "constant_value": [
+                                      "elasticfilesystem:ClientMount",
+                                      "elasticfilesystem:ClientWrite"
+                                    ]
+                                  },
+                                  "condition": [
+                                    {
+                                      "test": {
+                                        "constant_value": "Bool"
+                                      },
+                                      "values": {
+                                        "constant_value": [
+                                          "true"
+                                        ]
+                                      },
+                                      "variable": {
+                                        "constant_value": "elasticfilesystem:AccessedViaMountTarget"
+                                      }
+                                    }
+                                  ],
+                                  "effect": {
+                                    "constant_value": "Allow"
+                                  },
+                                  "principals": [
+                                    {
+                                      "identifiers": {
+                                        "constant_value": [
+                                          "*"
+                                        ]
+                                      },
+                                      "type": {
+                                        "constant_value": "AWS"
+                                      }
+                                    }
+                                  ],
+                                  "resources": {
+                                    "references": [
+                                      "aws_efs_file_system.efs-via-nested-module.arn",
+                                      "aws_efs_file_system.efs-via-nested-module"
+                                    ]
+                                  },
+                                  "sid": {
+                                    "constant_value": "UpdateThisPolicy"
+                                  }
+                                }
+                              ]
+                            },
+                            "schema_version": 0
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "update": {
+        "resource_changes": [
+          {
+            "address": "aws_efs_file_system.with-policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system",
+            "name": "with-policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "no-op"
+              ],
+              "before": {
+                "arn": "arn:aws:elasticfilesystem:us-east-1:111122223434:file-system/fs-0039e5de7988b116c",
+                "availability_zone_id": "",
+                "availability_zone_name": "",
+                "creation_token": "my-product-with-policy",
+                "dns_name": "fs-0039e5de7988b116c.efs.us-east-1.amazonaws.com",
+                "encrypted": false,
+                "id": "fs-0039e5de7988b116c",
+                "kms_key_id": "",
+                "lifecycle_policy": [],
+                "name": "MyProductWithPolicy",
+                "number_of_mount_targets": 0,
+                "owner_id": "111122223434",
+                "performance_mode": "generalPurpose",
+                "protection": [
+                  {
+                    "replication_overwrite": "ENABLED"
+                  }
+                ],
+                "provisioned_throughput_in_mibps": 0,
+                "size_in_bytes": [
+                  {
+                    "value": 6144,
+                    "value_in_ia": 0,
+                    "value_in_standard": 6144
+                  }
+                ],
+                "tags": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "tags_all": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "throughput_mode": "bursting"
+              },
+              "after": {
+                "arn": "arn:aws:elasticfilesystem:us-east-1:111122223434:file-system/fs-0039e5de7988b116c",
+                "availability_zone_id": "",
+                "availability_zone_name": "",
+                "creation_token": "my-product-with-policy",
+                "dns_name": "fs-0039e5de7988b116c.efs.us-east-1.amazonaws.com",
+                "encrypted": false,
+                "id": "fs-0039e5de7988b116c",
+                "kms_key_id": "",
+                "lifecycle_policy": [],
+                "name": "MyProductWithPolicy",
+                "number_of_mount_targets": 0,
+                "owner_id": "111122223434",
+                "performance_mode": "generalPurpose",
+                "protection": [
+                  {
+                    "replication_overwrite": "ENABLED"
+                  }
+                ],
+                "provisioned_throughput_in_mibps": 0,
+                "size_in_bytes": [
+                  {
+                    "value": 6144,
+                    "value_in_ia": 0,
+                    "value_in_standard": 6144
+                  }
+                ],
+                "tags": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "tags_all": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "throughput_mode": "bursting"
+              },
+              "after_unknown": {},
+              "before_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [
+                  {}
+                ],
+                "size_in_bytes": [
+                  {}
+                ],
+                "tags": {},
+                "tags_all": {}
+              },
+              "after_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [
+                  {}
+                ],
+                "size_in_bytes": [
+                  {}
+                ],
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_efs_file_system_policy.policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system_policy",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "update"
+              ],
+              "before": {
+                "bypass_policy_lockout_safety_check": false,
+                "file_system_id": "fs-0039e5de7988b116c",
+                "id": "fs-0039e5de7988b116c",
+                "policy": "{\"Statement\":[{\"Action\":[\"elasticfilesystem:ClientWrite\",\"elasticfilesystem:ClientMount\"],\"Condition\":{\"Bool\":{\"elasticfilesystem:AccessedViaMountTarget\":\"true\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:elasticfilesystem:us-east-1:111122223434:file-system/fs-0039e5de7988b116c\",\"Sid\":\"ExampleStatement01\"}],\"Version\":\"2012-10-17\"}"
+              },
+              "after": {
+                "bypass_policy_lockout_safety_check": false,
+                "file_system_id": "fs-0039e5de7988b116c",
+                "id": "fs-0039e5de7988b116c",
+                "policy": "{\"Statement\":[{\"Action\":[\"elasticfilesystem:ClientWrite\",\"elasticfilesystem:ClientMount\"],\"Condition\":{\"Bool\":{\"elasticfilesystem:AccessedViaMountTarget\":\"true\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:elasticfilesystem:us-east-1:111122223434:file-system/fs-0039e5de7988b116c\",\"Sid\":\"UpdateThisPolicy\"}],\"Version\":\"2012-10-17\"}"
+              },
+              "after_unknown": {},
+              "before_sensitive": {},
+              "after_sensitive": {}
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_efs_file_system.with-policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system",
+                "name": "with-policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "creation_token": {
+                    "constant_value": "my-product-with-policy"
+                  },
+                  "tags": {
+                    "constant_value": {
+                      "Name": "MyProductWithPolicy"
+                    }
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_efs_file_system_policy.policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system_policy",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "file_system_id": {
+                    "references": [
+                      "aws_efs_file_system.with-policy.id",
+                      "aws_efs_file_system.with-policy"
+                    ]
+                  },
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.policy.json",
+                      "data.aws_iam_policy_document.policy"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_iam_policy_document.policy",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "elasticfilesystem:ClientMount",
+                          "elasticfilesystem:ClientWrite"
+                        ]
+                      },
+                      "condition": [
+                        {
+                          "test": {
+                            "constant_value": "Bool"
+                          },
+                          "values": {
+                            "constant_value": [
+                              "true"
+                            ]
+                          },
+                          "variable": {
+                            "constant_value": "elasticfilesystem:AccessedViaMountTarget"
+                          }
+                        }
+                      ],
+                      "effect": {
+                        "constant_value": "Allow"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "references": [
+                          "aws_efs_file_system.with-policy.arn",
+                          "aws_efs_file_system.with-policy"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "UpdateThisPolicy"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      }
+    },
+    "invalid": {
+      "no_policy": {
+        "resource_changes": [
+          {
+            "address": "aws_efs_file_system.no-policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system",
+            "name": "no-policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "creation_token": "my-product",
+                "lifecycle_policy": [],
+                "provisioned_throughput_in_mibps": null,
+                "tags": null,
+                "throughput_mode": "bursting"
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "availability_zone_name": true,
+                "dns_name": true,
+                "encrypted": true,
+                "id": true,
+                "kms_key_id": true,
+                "lifecycle_policy": [],
+                "name": true,
+                "number_of_mount_targets": true,
+                "owner_id": true,
+                "performance_mode": true,
+                "protection": true,
+                "size_in_bytes": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [],
+                "size_in_bytes": [],
+                "tags_all": {}
+              }
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_efs_file_system.no-policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system",
+                "name": "no-policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "creation_token": {
+                    "constant_value": "my-product"
+                  }
+                },
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      },
+      "bad_allow_policy": {
+        "resource_changes": [
+          {
+            "address": "data.aws_iam_policy_document.policy",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "elasticfilesystem:ClientMount",
+                      "elasticfilesystem:ClientWrite"
+                    ],
+                    "condition": [],
+                    "effect": "Allow",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "ExampleStatement01"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "aws_efs_file_system.with-policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system",
+            "name": "with-policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "creation_token": "my-product-with-policy",
+                "lifecycle_policy": [],
+                "provisioned_throughput_in_mibps": null,
+                "tags": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "tags_all": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "throughput_mode": "bursting"
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "availability_zone_name": true,
+                "dns_name": true,
+                "encrypted": true,
+                "id": true,
+                "kms_key_id": true,
+                "lifecycle_policy": [],
+                "name": true,
+                "number_of_mount_targets": true,
+                "owner_id": true,
+                "performance_mode": true,
+                "protection": true,
+                "size_in_bytes": true,
+                "tags": {},
+                "tags_all": {}
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [],
+                "size_in_bytes": [],
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_efs_file_system_policy.policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system_policy",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "bypass_policy_lockout_safety_check": false
+              },
+              "after_unknown": {
+                "file_system_id": true,
+                "id": true,
+                "policy": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_efs_file_system.with-policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system",
+                "name": "with-policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "creation_token": {
+                    "constant_value": "my-product-with-policy"
+                  },
+                  "tags": {
+                    "constant_value": {
+                      "Name": "MyProductWithPolicy"
+                    }
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_efs_file_system_policy.policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system_policy",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "file_system_id": {
+                    "references": [
+                      "aws_efs_file_system.with-policy.id",
+                      "aws_efs_file_system.with-policy"
+                    ]
+                  },
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.policy.json",
+                      "data.aws_iam_policy_document.policy"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_iam_policy_document.policy",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "elasticfilesystem:ClientMount",
+                          "elasticfilesystem:ClientWrite"
+                        ]
+                      },
+                      "effect": {
+                        "constant_value": "Allow"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "references": [
+                          "aws_efs_file_system.with-policy.arn",
+                          "aws_efs_file_system.with-policy"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "ExampleStatement01"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      },
+      "bad_deny_policy": {
+        "resource_changes": [
+          {
+            "address": "data.aws_iam_policy_document.policy",
+            "mode": "data",
+            "type": "aws_iam_policy_document",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "read"
+              ],
+              "before": null,
+              "after": {
+                "override_json": null,
+                "override_policy_documents": null,
+                "policy_id": null,
+                "source_json": null,
+                "source_policy_documents": null,
+                "statement": [
+                  {
+                    "actions": [
+                      "elasticfilesystem:ClientMount",
+                      "elasticfilesystem:ClientWrite"
+                    ],
+                    "condition": [],
+                    "effect": "Deny",
+                    "not_actions": null,
+                    "not_principals": [],
+                    "not_resources": null,
+                    "principals": [
+                      {
+                        "identifiers": [
+                          "*"
+                        ],
+                        "type": "AWS"
+                      }
+                    ],
+                    "resources": [
+                      null
+                    ],
+                    "sid": "ExampleStatement01"
+                  }
+                ],
+                "version": null
+              },
+              "after_unknown": {
+                "id": true,
+                "json": true,
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      true
+                    ]
+                  }
+                ]
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "statement": [
+                  {
+                    "actions": [
+                      false,
+                      false
+                    ],
+                    "condition": [],
+                    "not_principals": [],
+                    "principals": [
+                      {
+                        "identifiers": [
+                          false
+                        ]
+                      }
+                    ],
+                    "resources": [
+                      false
+                    ]
+                  }
+                ]
+              }
+            },
+            "action_reason": "read_because_config_unknown"
+          },
+          {
+            "address": "aws_efs_file_system.with-policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system",
+            "name": "with-policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "creation_token": "my-product-with-policy",
+                "lifecycle_policy": [],
+                "provisioned_throughput_in_mibps": null,
+                "tags": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "tags_all": {
+                  "Name": "MyProductWithPolicy"
+                },
+                "throughput_mode": "bursting"
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "availability_zone_name": true,
+                "dns_name": true,
+                "encrypted": true,
+                "id": true,
+                "kms_key_id": true,
+                "lifecycle_policy": [],
+                "name": true,
+                "number_of_mount_targets": true,
+                "owner_id": true,
+                "performance_mode": true,
+                "protection": true,
+                "size_in_bytes": true,
+                "tags": {},
+                "tags_all": {}
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "lifecycle_policy": [],
+                "protection": [],
+                "size_in_bytes": [],
+                "tags": {},
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_efs_file_system_policy.policy",
+            "mode": "managed",
+            "type": "aws_efs_file_system_policy",
+            "name": "policy",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "bypass_policy_lockout_safety_check": false
+              },
+              "after_unknown": {
+                "file_system_id": true,
+                "id": true,
+                "policy": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {}
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_efs_file_system.with-policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system",
+                "name": "with-policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "creation_token": {
+                    "constant_value": "my-product-with-policy"
+                  },
+                  "tags": {
+                    "constant_value": {
+                      "Name": "MyProductWithPolicy"
+                    }
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_efs_file_system_policy.policy",
+                "mode": "managed",
+                "type": "aws_efs_file_system_policy",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "file_system_id": {
+                    "references": [
+                      "aws_efs_file_system.with-policy.id",
+                      "aws_efs_file_system.with-policy"
+                    ]
+                  },
+                  "policy": {
+                    "references": [
+                      "data.aws_iam_policy_document.policy.json",
+                      "data.aws_iam_policy_document.policy"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_iam_policy_document.policy",
+                "mode": "data",
+                "type": "aws_iam_policy_document",
+                "name": "policy",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "statement": [
+                    {
+                      "actions": {
+                        "constant_value": [
+                          "elasticfilesystem:ClientMount",
+                          "elasticfilesystem:ClientWrite"
+                        ]
+                      },
+                      "effect": {
+                        "constant_value": "Deny"
+                      },
+                      "principals": [
+                        {
+                          "identifiers": {
+                            "constant_value": [
+                              "*"
+                            ]
+                          },
+                          "type": {
+                            "constant_value": "AWS"
+                          }
+                        }
+                      ],
+                      "resources": {
+                        "references": [
+                          "aws_efs_file_system.with-policy.arn",
+                          "aws_efs_file_system.with-policy"
+                        ]
+                      },
+                      "sid": {
+                        "constant_value": "ExampleStatement01"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

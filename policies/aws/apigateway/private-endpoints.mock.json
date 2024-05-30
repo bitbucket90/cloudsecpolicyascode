@@ -1,0 +1,1466 @@
+{
+  "mock": {
+    "valid": {
+      "create": {
+        "resource_changes": [
+          {
+            "address": "aws_api_gateway_deployment.example",
+            "mode": "managed",
+            "type": "aws_api_gateway_deployment",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "canary_settings": [],
+                "description": null,
+                "stage_description": null,
+                "stage_name": null,
+                "triggers": {
+                  "redeployment": "2be88ca4242c76e8253ac62474851065032d6833"
+                },
+                "variables": null
+              },
+              "after_unknown": {
+                "canary_settings": [],
+                "created_date": true,
+                "execution_arn": true,
+                "id": true,
+                "invoke_url": true,
+                "rest_api_id": true,
+                "triggers": {}
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "canary_settings": [],
+                "triggers": {}
+              }
+            }
+          },
+          {
+            "address": "aws_api_gateway_rest_api.private-with-vpc-endpoint",
+            "mode": "managed",
+            "type": "aws_api_gateway_rest_api",
+            "name": "private-with-vpc-endpoint",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "body": null,
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      "PRIVATE"
+                    ],
+                    "vpc_endpoint_ids": [
+                      "123",
+                      "234",
+                      "567"
+                    ]
+                  }
+                ],
+                "fail_on_warnings": null,
+                "name": "example",
+                "parameters": null,
+                "put_rest_api_mode": "merge",
+                "tags": null
+              },
+              "after_unknown": {
+                "api_key_source": true,
+                "arn": true,
+                "binary_media_types": true,
+                "created_date": true,
+                "description": true,
+                "disable_execute_api_endpoint": true,
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      false
+                    ],
+                    "vpc_endpoint_ids": [
+                      false,
+                      false,
+                      false
+                    ]
+                  }
+                ],
+                "execution_arn": true,
+                "id": true,
+                "minimum_compression_size": true,
+                "policy": true,
+                "root_resource_id": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "binary_media_types": [],
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      false
+                    ],
+                    "vpc_endpoint_ids": [
+                      false,
+                      false,
+                      false
+                    ]
+                  }
+                ],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_api_gateway_stage.example",
+            "mode": "managed",
+            "type": "aws_api_gateway_stage",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "access_log_settings": [],
+                "cache_cluster_enabled": null,
+                "cache_cluster_size": null,
+                "canary_settings": [],
+                "client_certificate_id": null,
+                "description": null,
+                "documentation_version": null,
+                "stage_name": "example",
+                "tags": null,
+                "variables": null,
+                "xray_tracing_enabled": null
+              },
+              "after_unknown": {
+                "access_log_settings": [],
+                "arn": true,
+                "canary_settings": [],
+                "deployment_id": true,
+                "execution_arn": true,
+                "id": true,
+                "invoke_url": true,
+                "rest_api_id": true,
+                "tags_all": true,
+                "web_acl_arn": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "access_log_settings": [],
+                "canary_settings": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_default_security_group.example",
+            "mode": "managed",
+            "type": "aws_default_security_group",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "revoke_rules_on_delete": false,
+                "tags": null
+              },
+              "after_unknown": {
+                "arn": true,
+                "description": true,
+                "egress": true,
+                "id": true,
+                "ingress": true,
+                "name": true,
+                "name_prefix": true,
+                "owner_id": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "egress": [],
+                "ingress": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_subnet.example",
+            "mode": "managed",
+            "type": "aws_subnet",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "assign_ipv6_address_on_creation": false,
+                "availability_zone": "us-east-1a",
+                "cidr_block": "10.0.0.0/24",
+                "customer_owned_ipv4_pool": null,
+                "enable_dns64": false,
+                "enable_lni_at_device_index": null,
+                "enable_resource_name_dns_a_record_on_launch": false,
+                "enable_resource_name_dns_aaaa_record_on_launch": false,
+                "ipv6_cidr_block": null,
+                "ipv6_native": false,
+                "map_customer_owned_ip_on_launch": null,
+                "map_public_ip_on_launch": false,
+                "outpost_arn": null,
+                "tags": null,
+                "timeouts": null
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "id": true,
+                "ipv6_cidr_block_association_id": true,
+                "owner_id": true,
+                "private_dns_hostname_type_on_launch": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc.example",
+            "mode": "managed",
+            "type": "aws_vpc",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "assign_generated_ipv6_cidr_block": null,
+                "cidr_block": "10.0.0.0/16",
+                "enable_dns_hostnames": true,
+                "enable_dns_support": true,
+                "instance_tenancy": "default",
+                "ipv4_ipam_pool_id": null,
+                "ipv4_netmask_length": null,
+                "ipv6_ipam_pool_id": null,
+                "ipv6_netmask_length": null,
+                "tags": null
+              },
+              "after_unknown": {
+                "arn": true,
+                "default_network_acl_id": true,
+                "default_route_table_id": true,
+                "default_security_group_id": true,
+                "dhcp_options_id": true,
+                "enable_network_address_usage_metrics": true,
+                "id": true,
+                "ipv6_association_id": true,
+                "ipv6_cidr_block": true,
+                "ipv6_cidr_block_network_border_group": true,
+                "main_route_table_id": true,
+                "owner_id": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc_endpoint.example[0]",
+            "mode": "managed",
+            "type": "aws_vpc_endpoint",
+            "name": "example",
+            "index": 0,
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "auto_accept": null,
+                "private_dns_enabled": false,
+                "service_name": "com.amazonaws.us-east-1.execute-api",
+                "tags": null,
+                "timeouts": null,
+                "vpc_endpoint_type": "Interface"
+              },
+              "after_unknown": {
+                "arn": true,
+                "cidr_blocks": true,
+                "dns_entry": true,
+                "dns_options": true,
+                "id": true,
+                "ip_address_type": true,
+                "network_interface_ids": true,
+                "owner_id": true,
+                "policy": true,
+                "prefix_list_id": true,
+                "requester_managed": true,
+                "route_table_ids": true,
+                "security_group_ids": true,
+                "state": true,
+                "subnet_ids": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "cidr_blocks": [],
+                "dns_entry": [],
+                "dns_options": [],
+                "network_interface_ids": [],
+                "route_table_ids": [],
+                "security_group_ids": [],
+                "subnet_ids": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc_endpoint.example[1]",
+            "mode": "managed",
+            "type": "aws_vpc_endpoint",
+            "name": "example",
+            "index": 1,
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "auto_accept": null,
+                "private_dns_enabled": false,
+                "service_name": "com.amazonaws.us-east-1.execute-api",
+                "tags": null,
+                "timeouts": null,
+                "vpc_endpoint_type": "Interface"
+              },
+              "after_unknown": {
+                "arn": true,
+                "cidr_blocks": true,
+                "dns_entry": true,
+                "dns_options": true,
+                "id": true,
+                "ip_address_type": true,
+                "network_interface_ids": true,
+                "owner_id": true,
+                "policy": true,
+                "prefix_list_id": true,
+                "requester_managed": true,
+                "route_table_ids": true,
+                "security_group_ids": true,
+                "state": true,
+                "subnet_ids": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "cidr_blocks": [],
+                "dns_entry": [],
+                "dns_options": [],
+                "network_interface_ids": [],
+                "route_table_ids": [],
+                "security_group_ids": [],
+                "subnet_ids": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc_endpoint.example[2]",
+            "mode": "managed",
+            "type": "aws_vpc_endpoint",
+            "name": "example",
+            "index": 2,
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "auto_accept": null,
+                "private_dns_enabled": false,
+                "service_name": "com.amazonaws.us-east-1.execute-api",
+                "tags": null,
+                "timeouts": null,
+                "vpc_endpoint_type": "Interface"
+              },
+              "after_unknown": {
+                "arn": true,
+                "cidr_blocks": true,
+                "dns_entry": true,
+                "dns_options": true,
+                "id": true,
+                "ip_address_type": true,
+                "network_interface_ids": true,
+                "owner_id": true,
+                "policy": true,
+                "prefix_list_id": true,
+                "requester_managed": true,
+                "route_table_ids": true,
+                "security_group_ids": true,
+                "state": true,
+                "subnet_ids": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "cidr_blocks": [],
+                "dns_entry": [],
+                "dns_options": [],
+                "network_interface_ids": [],
+                "route_table_ids": [],
+                "security_group_ids": [],
+                "subnet_ids": [],
+                "tags_all": {}
+              }
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_api_gateway_deployment.example",
+                "mode": "managed",
+                "type": "aws_api_gateway_deployment",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "rest_api_id": {
+                    "references": [
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint.id",
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint"
+                    ]
+                  },
+                  "triggers": {
+                    "references": [
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint.body",
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_api_gateway_rest_api.private-with-vpc-endpoint",
+                "mode": "managed",
+                "type": "aws_api_gateway_rest_api",
+                "name": "private-with-vpc-endpoint",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "endpoint_configuration": [
+                    {
+                      "types": {
+                        "constant_value": [
+                          "PRIVATE"
+                        ]
+                      },
+                      "vpc_endpoint_ids": {
+                        "constant_value": [
+                          "123",
+                          "234",
+                          "567"
+                        ]
+                      }
+                    }
+                  ],
+                  "name": {
+                    "constant_value": "example"
+                  },
+                  "put_rest_api_mode": {
+                    "constant_value": "merge"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_api_gateway_stage.example",
+                "mode": "managed",
+                "type": "aws_api_gateway_stage",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "deployment_id": {
+                    "references": [
+                      "aws_api_gateway_deployment.example.id",
+                      "aws_api_gateway_deployment.example"
+                    ]
+                  },
+                  "rest_api_id": {
+                    "references": [
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint.id",
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint"
+                    ]
+                  },
+                  "stage_name": {
+                    "constant_value": "example"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_default_security_group.example",
+                "mode": "managed",
+                "type": "aws_default_security_group",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "vpc_id": {
+                    "references": [
+                      "aws_vpc.example.id",
+                      "aws_vpc.example"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "aws_subnet.example",
+                "mode": "managed",
+                "type": "aws_subnet",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "availability_zone": {
+                    "references": [
+                      "data.aws_availability_zones.available.names[0]",
+                      "data.aws_availability_zones.available.names",
+                      "data.aws_availability_zones.available"
+                    ]
+                  },
+                  "cidr_block": {
+                    "references": [
+                      "aws_vpc.example.cidr_block",
+                      "aws_vpc.example"
+                    ]
+                  },
+                  "vpc_id": {
+                    "references": [
+                      "aws_vpc.example.id",
+                      "aws_vpc.example"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "aws_vpc.example",
+                "mode": "managed",
+                "type": "aws_vpc",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "cidr_block": {
+                    "constant_value": "10.0.0.0/16"
+                  },
+                  "enable_dns_hostnames": {
+                    "constant_value": true
+                  },
+                  "enable_dns_support": {
+                    "constant_value": true
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "aws_vpc_endpoint.example",
+                "mode": "managed",
+                "type": "aws_vpc_endpoint",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "private_dns_enabled": {
+                    "constant_value": false
+                  },
+                  "security_group_ids": {
+                    "references": [
+                      "aws_default_security_group.example.id",
+                      "aws_default_security_group.example"
+                    ]
+                  },
+                  "service_name": {
+                    "references": [
+                      "data.aws_region.current.name",
+                      "data.aws_region.current"
+                    ]
+                  },
+                  "subnet_ids": {
+                    "references": [
+                      "aws_subnet.example.id",
+                      "aws_subnet.example"
+                    ]
+                  },
+                  "vpc_endpoint_type": {
+                    "constant_value": "Interface"
+                  },
+                  "vpc_id": {
+                    "references": [
+                      "aws_vpc.example.id",
+                      "aws_vpc.example"
+                    ]
+                  }
+                },
+                "schema_version": 0,
+                "count_expression": {
+                  "constant_value": 3
+                }
+              },
+              {
+                "address": "data.aws_availability_zones.available",
+                "mode": "data",
+                "type": "aws_availability_zones",
+                "name": "available",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "filter": [
+                    {
+                      "name": {
+                        "constant_value": "opt-in-status"
+                      },
+                      "values": {
+                        "constant_value": [
+                          "opt-in-not-required"
+                        ]
+                      }
+                    }
+                  ],
+                  "state": {
+                    "constant_value": "available"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_region.current",
+                "mode": "data",
+                "type": "aws_region",
+                "name": "current",
+                "provider_config_key": "aws",
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      }
+    },
+    "invalid": {
+      "endpoint_configuration_types": {
+        "resource_changes": [
+          {
+            "address": "aws_api_gateway_deployment.example",
+            "mode": "managed",
+            "type": "aws_api_gateway_deployment",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "canary_settings": [],
+                "description": null,
+                "stage_description": null,
+                "stage_name": null,
+                "triggers": {
+                  "redeployment": "2be88ca4242c76e8253ac62474851065032d6833"
+                },
+                "variables": null
+              },
+              "after_unknown": {
+                "canary_settings": [],
+                "created_date": true,
+                "execution_arn": true,
+                "id": true,
+                "invoke_url": true,
+                "rest_api_id": true,
+                "triggers": {}
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "canary_settings": [],
+                "triggers": {}
+              }
+            }
+          },
+          {
+            "address": "aws_api_gateway_rest_api.private-with-vpc-endpoint",
+            "mode": "managed",
+            "type": "aws_api_gateway_rest_api",
+            "name": "private-with-vpc-endpoint",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "body": null,
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      "REGIONAL"
+                    ],
+                    "vpc_endpoint_ids": [
+                      "123",
+                      "234",
+                      "567"
+                    ]
+                  }
+                ],
+                "fail_on_warnings": null,
+                "name": "example",
+                "parameters": null,
+                "put_rest_api_mode": "merge",
+                "tags": null
+              },
+              "after_unknown": {
+                "api_key_source": true,
+                "arn": true,
+                "binary_media_types": true,
+                "created_date": true,
+                "description": true,
+                "disable_execute_api_endpoint": true,
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      false
+                    ],
+                    "vpc_endpoint_ids": [
+                      false,
+                      false,
+                      false
+                    ]
+                  }
+                ],
+                "execution_arn": true,
+                "id": true,
+                "minimum_compression_size": true,
+                "policy": true,
+                "root_resource_id": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "binary_media_types": [],
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      false
+                    ],
+                    "vpc_endpoint_ids": [
+                      false,
+                      false,
+                      false
+                    ]
+                  }
+                ],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_api_gateway_stage.example",
+            "mode": "managed",
+            "type": "aws_api_gateway_stage",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "access_log_settings": [],
+                "cache_cluster_enabled": null,
+                "cache_cluster_size": null,
+                "canary_settings": [],
+                "client_certificate_id": null,
+                "description": null,
+                "documentation_version": null,
+                "stage_name": "example",
+                "tags": null,
+                "variables": null,
+                "xray_tracing_enabled": null
+              },
+              "after_unknown": {
+                "access_log_settings": [],
+                "arn": true,
+                "canary_settings": [],
+                "deployment_id": true,
+                "execution_arn": true,
+                "id": true,
+                "invoke_url": true,
+                "rest_api_id": true,
+                "tags_all": true,
+                "web_acl_arn": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "access_log_settings": [],
+                "canary_settings": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_default_security_group.example",
+            "mode": "managed",
+            "type": "aws_default_security_group",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "revoke_rules_on_delete": false,
+                "tags": null
+              },
+              "after_unknown": {
+                "arn": true,
+                "description": true,
+                "egress": true,
+                "id": true,
+                "ingress": true,
+                "name": true,
+                "name_prefix": true,
+                "owner_id": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "egress": [],
+                "ingress": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_subnet.example",
+            "mode": "managed",
+            "type": "aws_subnet",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "assign_ipv6_address_on_creation": false,
+                "availability_zone": "us-east-1a",
+                "cidr_block": "10.0.0.0/24",
+                "customer_owned_ipv4_pool": null,
+                "enable_dns64": false,
+                "enable_lni_at_device_index": null,
+                "enable_resource_name_dns_a_record_on_launch": false,
+                "enable_resource_name_dns_aaaa_record_on_launch": false,
+                "ipv6_cidr_block": null,
+                "ipv6_native": false,
+                "map_customer_owned_ip_on_launch": null,
+                "map_public_ip_on_launch": false,
+                "outpost_arn": null,
+                "tags": null,
+                "timeouts": null
+              },
+              "after_unknown": {
+                "arn": true,
+                "availability_zone_id": true,
+                "id": true,
+                "ipv6_cidr_block_association_id": true,
+                "owner_id": true,
+                "private_dns_hostname_type_on_launch": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc.example",
+            "mode": "managed",
+            "type": "aws_vpc",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "assign_generated_ipv6_cidr_block": null,
+                "cidr_block": "10.0.0.0/16",
+                "enable_dns_hostnames": true,
+                "enable_dns_support": true,
+                "instance_tenancy": "default",
+                "ipv4_ipam_pool_id": null,
+                "ipv4_netmask_length": null,
+                "ipv6_ipam_pool_id": null,
+                "ipv6_netmask_length": null,
+                "tags": null
+              },
+              "after_unknown": {
+                "arn": true,
+                "default_network_acl_id": true,
+                "default_route_table_id": true,
+                "default_security_group_id": true,
+                "dhcp_options_id": true,
+                "enable_network_address_usage_metrics": true,
+                "id": true,
+                "ipv6_association_id": true,
+                "ipv6_cidr_block": true,
+                "ipv6_cidr_block_network_border_group": true,
+                "main_route_table_id": true,
+                "owner_id": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc_endpoint.example[0]",
+            "mode": "managed",
+            "type": "aws_vpc_endpoint",
+            "name": "example",
+            "index": 0,
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "auto_accept": null,
+                "private_dns_enabled": false,
+                "service_name": "com.amazonaws.us-east-1.execute-api",
+                "tags": null,
+                "timeouts": null,
+                "vpc_endpoint_type": "Interface"
+              },
+              "after_unknown": {
+                "arn": true,
+                "cidr_blocks": true,
+                "dns_entry": true,
+                "dns_options": true,
+                "id": true,
+                "ip_address_type": true,
+                "network_interface_ids": true,
+                "owner_id": true,
+                "policy": true,
+                "prefix_list_id": true,
+                "requester_managed": true,
+                "route_table_ids": true,
+                "security_group_ids": true,
+                "state": true,
+                "subnet_ids": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "cidr_blocks": [],
+                "dns_entry": [],
+                "dns_options": [],
+                "network_interface_ids": [],
+                "route_table_ids": [],
+                "security_group_ids": [],
+                "subnet_ids": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc_endpoint.example[1]",
+            "mode": "managed",
+            "type": "aws_vpc_endpoint",
+            "name": "example",
+            "index": 1,
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "auto_accept": null,
+                "private_dns_enabled": false,
+                "service_name": "com.amazonaws.us-east-1.execute-api",
+                "tags": null,
+                "timeouts": null,
+                "vpc_endpoint_type": "Interface"
+              },
+              "after_unknown": {
+                "arn": true,
+                "cidr_blocks": true,
+                "dns_entry": true,
+                "dns_options": true,
+                "id": true,
+                "ip_address_type": true,
+                "network_interface_ids": true,
+                "owner_id": true,
+                "policy": true,
+                "prefix_list_id": true,
+                "requester_managed": true,
+                "route_table_ids": true,
+                "security_group_ids": true,
+                "state": true,
+                "subnet_ids": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "cidr_blocks": [],
+                "dns_entry": [],
+                "dns_options": [],
+                "network_interface_ids": [],
+                "route_table_ids": [],
+                "security_group_ids": [],
+                "subnet_ids": [],
+                "tags_all": {}
+              }
+            }
+          },
+          {
+            "address": "aws_vpc_endpoint.example[2]",
+            "mode": "managed",
+            "type": "aws_vpc_endpoint",
+            "name": "example",
+            "index": 2,
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "auto_accept": null,
+                "private_dns_enabled": false,
+                "service_name": "com.amazonaws.us-east-1.execute-api",
+                "tags": null,
+                "timeouts": null,
+                "vpc_endpoint_type": "Interface"
+              },
+              "after_unknown": {
+                "arn": true,
+                "cidr_blocks": true,
+                "dns_entry": true,
+                "dns_options": true,
+                "id": true,
+                "ip_address_type": true,
+                "network_interface_ids": true,
+                "owner_id": true,
+                "policy": true,
+                "prefix_list_id": true,
+                "requester_managed": true,
+                "route_table_ids": true,
+                "security_group_ids": true,
+                "state": true,
+                "subnet_ids": true,
+                "tags_all": true,
+                "vpc_id": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "cidr_blocks": [],
+                "dns_entry": [],
+                "dns_options": [],
+                "network_interface_ids": [],
+                "route_table_ids": [],
+                "security_group_ids": [],
+                "subnet_ids": [],
+                "tags_all": {}
+              }
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_api_gateway_deployment.example",
+                "mode": "managed",
+                "type": "aws_api_gateway_deployment",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "rest_api_id": {
+                    "references": [
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint.id",
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint"
+                    ]
+                  },
+                  "triggers": {
+                    "references": [
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint.body",
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_api_gateway_rest_api.private-with-vpc-endpoint",
+                "mode": "managed",
+                "type": "aws_api_gateway_rest_api",
+                "name": "private-with-vpc-endpoint",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "endpoint_configuration": [
+                    {
+                      "types": {
+                        "constant_value": [
+                          "REGIONAL"
+                        ]
+                      },
+                      "vpc_endpoint_ids": {
+                        "constant_value": [
+                          "123",
+                          "234",
+                          "567"
+                        ]
+                      }
+                    }
+                  ],
+                  "name": {
+                    "constant_value": "example"
+                  },
+                  "put_rest_api_mode": {
+                    "constant_value": "merge"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_api_gateway_stage.example",
+                "mode": "managed",
+                "type": "aws_api_gateway_stage",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "deployment_id": {
+                    "references": [
+                      "aws_api_gateway_deployment.example.id",
+                      "aws_api_gateway_deployment.example"
+                    ]
+                  },
+                  "rest_api_id": {
+                    "references": [
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint.id",
+                      "aws_api_gateway_rest_api.private-with-vpc-endpoint"
+                    ]
+                  },
+                  "stage_name": {
+                    "constant_value": "example"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "aws_default_security_group.example",
+                "mode": "managed",
+                "type": "aws_default_security_group",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "vpc_id": {
+                    "references": [
+                      "aws_vpc.example.id",
+                      "aws_vpc.example"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "aws_subnet.example",
+                "mode": "managed",
+                "type": "aws_subnet",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "availability_zone": {
+                    "references": [
+                      "data.aws_availability_zones.available.names[0]",
+                      "data.aws_availability_zones.available.names",
+                      "data.aws_availability_zones.available"
+                    ]
+                  },
+                  "cidr_block": {
+                    "references": [
+                      "aws_vpc.example.cidr_block",
+                      "aws_vpc.example"
+                    ]
+                  },
+                  "vpc_id": {
+                    "references": [
+                      "aws_vpc.example.id",
+                      "aws_vpc.example"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "aws_vpc.example",
+                "mode": "managed",
+                "type": "aws_vpc",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "cidr_block": {
+                    "constant_value": "10.0.0.0/16"
+                  },
+                  "enable_dns_hostnames": {
+                    "constant_value": true
+                  },
+                  "enable_dns_support": {
+                    "constant_value": true
+                  }
+                },
+                "schema_version": 1
+              },
+              {
+                "address": "aws_vpc_endpoint.example",
+                "mode": "managed",
+                "type": "aws_vpc_endpoint",
+                "name": "example",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "private_dns_enabled": {
+                    "constant_value": false
+                  },
+                  "security_group_ids": {
+                    "references": [
+                      "aws_default_security_group.example.id",
+                      "aws_default_security_group.example"
+                    ]
+                  },
+                  "service_name": {
+                    "references": [
+                      "data.aws_region.current.name",
+                      "data.aws_region.current"
+                    ]
+                  },
+                  "subnet_ids": {
+                    "references": [
+                      "aws_subnet.example.id",
+                      "aws_subnet.example"
+                    ]
+                  },
+                  "vpc_endpoint_type": {
+                    "constant_value": "Interface"
+                  },
+                  "vpc_id": {
+                    "references": [
+                      "aws_vpc.example.id",
+                      "aws_vpc.example"
+                    ]
+                  }
+                },
+                "schema_version": 0,
+                "count_expression": {
+                  "constant_value": 3
+                }
+              },
+              {
+                "address": "data.aws_availability_zones.available",
+                "mode": "data",
+                "type": "aws_availability_zones",
+                "name": "available",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "filter": [
+                    {
+                      "name": {
+                        "constant_value": "opt-in-status"
+                      },
+                      "values": {
+                        "constant_value": [
+                          "opt-in-not-required"
+                        ]
+                      }
+                    }
+                  ],
+                  "state": {
+                    "constant_value": "available"
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.aws_region.current",
+                "mode": "data",
+                "type": "aws_region",
+                "name": "current",
+                "provider_config_key": "aws",
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      },
+      "endpoint_configuration_vpc_endpoint_ids": {
+        "resource_changes": [
+          {
+            "address": "aws_api_gateway_rest_api.private",
+            "mode": "managed",
+            "type": "aws_api_gateway_rest_api",
+            "name": "private",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "body": null,
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      "PRIVATE"
+                    ]
+                  }
+                ],
+                "fail_on_warnings": null,
+                "name": "private",
+                "parameters": null,
+                "put_rest_api_mode": null,
+                "tags": null
+              },
+              "after_unknown": {
+                "api_key_source": true,
+                "arn": true,
+                "binary_media_types": true,
+                "created_date": true,
+                "description": true,
+                "disable_execute_api_endpoint": true,
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      false
+                    ],
+                    "vpc_endpoint_ids": true
+                  }
+                ],
+                "execution_arn": true,
+                "id": true,
+                "minimum_compression_size": true,
+                "policy": true,
+                "root_resource_id": true,
+                "tags_all": true
+              },
+              "before_sensitive": false,
+              "after_sensitive": {
+                "binary_media_types": [],
+                "endpoint_configuration": [
+                  {
+                    "types": [
+                      false
+                    ],
+                    "vpc_endpoint_ids": []
+                  }
+                ],
+                "tags_all": {}
+              }
+            }
+          }
+        ],
+        "configuration": {
+          "provider_config": {
+            "aws": {
+              "name": "aws",
+              "full_name": "registry.terraform.io/hashicorp/aws",
+              "expressions": {
+                "region": {
+                  "constant_value": "us-east-1"
+                }
+              }
+            }
+          },
+          "root_module": {
+            "resources": [
+              {
+                "address": "aws_api_gateway_rest_api.private",
+                "mode": "managed",
+                "type": "aws_api_gateway_rest_api",
+                "name": "private",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "endpoint_configuration": [
+                    {
+                      "types": {
+                        "constant_value": [
+                          "PRIVATE"
+                        ]
+                      }
+                    }
+                  ],
+                  "name": {
+                    "constant_value": "private"
+                  }
+                },
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

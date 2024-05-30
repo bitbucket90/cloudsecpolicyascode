@@ -1,0 +1,6 @@
+{
+  "app": "npx ts-node --prefer-ts-exts bin/policies-pipeline.ts",
+  "context":{
+    "aws-cdk:enableDiffNoFail": "true"
+  }
+}

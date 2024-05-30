@@ -1,0 +1,17 @@
+{
+  "policy_set_name": "EFS Standards",
+  "policy_set_description": "Policies to Enforce EFS Standards",
+  "policy_engine": "opa",
+  "policy_exceptions": [],
+  "include_organizations": [],
+  "policies": [
+    {
+      "name": "efs-no_public_access",
+      "description": "Restrict public access to EFS file systems.",
+      "path": "no_public_access.rego",
+      "opa_query": "data.aws.efs.no_public_access.deny",
+      "enforcement_mode": "mandatory",
+      "runbook_requirement_uid": []
+    }
+  ]
+}
